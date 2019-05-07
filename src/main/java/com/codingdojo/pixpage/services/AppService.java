@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.codingdojo.pixpage.models.Album;
 import com.codingdojo.pixpage.models.Image;
 import com.codingdojo.pixpage.models.User;
+import com.codingdojo.pixpage.models.Users_Friends;
 import com.codingdojo.pixpage.repositories.AlbumRepository;
 import com.codingdojo.pixpage.repositories.CommentRepository;
 import com.codingdojo.pixpage.repositories.ImageRepository;
@@ -98,8 +99,6 @@ public class AppService {
 		return iRep.save(newImage);
 	}
 //**************************************************************************************************
-//**************************************************************************************************
-//**************************************************************************************************
 	public Image findImageById(Long imageId) {
 		Optional<Image> i = iRep.findById(imageId);
 		if(i.isPresent()) {
@@ -143,4 +142,10 @@ public Image storeImage(MultipartFile file, Long albumId, Long userId, String de
 } 
 
 //**************************************************************************************************
+public void createFriendRelationship(Long loggedInId, Long otherUserId) {
+	Users_Friends newInstance = new Users_Friends();
+	
+}
+//**************************************************************************************************
+
 }
