@@ -1,0 +1,40 @@
+		.suggestedUsers {
+			border: 2px solid black;	
+			width: 10%;
+			display: inline-block;
+		}
+		
+		li {
+			margin-left: -20px;
+			font-size: .7em;
+		}
+		
+		.albumsView {
+			min-width: 70%;
+			border: 2px solid black;
+			margin-top: 20px;
+		}
+		
+		.logout {
+			text-align: right;
+		}
+		
+		.albumsView h4 {
+			display: inline-block;
+			margin-top: -1px;
+			text-decoration: underline;
+		}
+		
+		.addAlbumLink {
+			float: right;
+			margin-right: 10px;
+		}
+		
+		.albumLink {
+			display: inline-block;
+			border: 2px solid orange;
+			width: 65px;
+			height: 65px;
+			margin: 10px;
+			text-align: center;
+		}
