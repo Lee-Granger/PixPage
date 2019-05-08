@@ -37,7 +37,7 @@
 		<a href="/friend/add/${ otherUser.id }">Make Friend</a>
 	</c:when>
 	<c:otherwise>
-		<p>You are already Friends</p>
+		<p>You are already Friends - <a href="/remove/friend/${ otherUser.id }">Remove friend?</a></p>
 	</c:otherwise>
 </c:choose>
 

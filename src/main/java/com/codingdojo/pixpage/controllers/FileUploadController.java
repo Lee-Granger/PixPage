@@ -87,11 +87,6 @@ public class FileUploadController {
 		return "redirect:/album/view/{id}";
 	}
 //**********************************************************************************************
-@RequestMapping("/test/cheeks/{id}")
-public String testRoute(@PathVariable("id") Long id) {
-	
-	return "redirect:/album/view/{id}";
-}
 //**********************************************************************************************
 
 

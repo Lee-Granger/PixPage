@@ -10,6 +10,9 @@
 		.img {
 			display: inline-block;
 			border: 2px solid red;
+			width: 200px;
+			height: 150px;
+			text-align: center;
 		}
 	</style>
 	<meta charset="UTF-8">
@@ -26,6 +29,14 @@
 <c:forEach items="${ album.images }" var="image">
 	<div class="img">
 		<a href="/image/view/${ image.id }"><img src="data:image/png;base64,${ image.base64 }" width="200" height="150"/></a>
+		<c:choose>
+			<c:when test="${ album.creator.id == sessId }">
+				<form action="/image/delete/${ image.id }">
+					<input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this picture?');">
+				</form>
+			</c:when>
+			<c:otherwise></c:otherwise>
+		</c:choose>
 	</div>
 </c:forEach>
 
