@@ -50,9 +50,6 @@ public String loginPage() {
 	
 	return "loginForm.jsp";
 }
-
-//*****************************************************************************
-
 //*****************************************************************************
 @PostMapping("/register/user")
 public String registerUser(@Valid @ModelAttribute("newUser")User user, BindingResult result, HttpSession session) {
@@ -136,9 +133,14 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 	}
 //********************************************************************************
 	@RequestMapping("/profile/view/{id}")
-	public String profileView(@PathVariable("id") Long id, Model model) {
+	public String profileView(@PathVariable("id") Long id, Model model, HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		User loggedIn = appServ.findUserById(userId);
+		model.addAttribute("user", loggedIn);
 		User usersProfile = appServ.findUserById(id);
 		model.addAttribute("otherUser", usersProfile);
+		boolean relationship = appServ.doesRelationshipExist(userId, id);
+		model.addAttribute("status", relationship);
 		return "profileView.jsp";
 	}
 //********************************************************************************

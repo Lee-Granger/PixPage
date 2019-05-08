@@ -19,6 +19,7 @@ public class FriendManagementController {
 	public String addFriend(HttpSession session, @PathVariable("id") Long otherUserId) {
 		Long loggedInId = (Long) session.getAttribute("userId");
 		appServ.createFriendRelationship(loggedInId, otherUserId);
+		return "redirect:/profile/view/{id}";
 	}
 //***************************************************************************************
 //***************************************************************************************

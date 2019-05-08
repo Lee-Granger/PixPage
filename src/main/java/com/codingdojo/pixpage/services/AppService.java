@@ -142,8 +142,20 @@ public Image storeImage(MultipartFile file, Long albumId, Long userId, String de
 } 
 
 //**************************************************************************************************
-public void createFriendRelationship(Long loggedInId, Long otherUserId) {
+public Users_Friends createFriendRelationship(Long loggedInId, Long otherUserId) {
 	Users_Friends newInstance = new Users_Friends();
+	newInstance.setUser_id(loggedInId);
+	newInstance.setFriend_id(otherUserId);
+	return UserFriendrep.save(newInstance);
+}
+//**************************************************************************************************
+public boolean doesRelationshipExist(Long userId, Long friendId) {
+	Users_Friends rel = UserFriendrep.doesRelationshipExist(userId, friendId);
+	if(rel == null) {
+		return false;
+	} else {
+		return true;
+	}
 	
 }
 //**************************************************************************************************
