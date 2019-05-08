@@ -159,5 +159,11 @@ public boolean doesRelationshipExist(Long userId, Long friendId) {
 	
 }
 //**************************************************************************************************
+public void deleteImage(Long Id ) {
+	iRep.deleteById(Id);
+	return;
+}
+
+//**************************************************************************************************
 
 }

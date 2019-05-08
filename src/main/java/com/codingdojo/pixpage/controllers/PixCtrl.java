@@ -144,6 +144,11 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 		return "profileView.jsp";
 	}
 //********************************************************************************
+	@RequestMapping("/image/delete/{id}")
+	public String deleteImage(@PathVariable("id") Long id) {
+		appServ.deleteImage(id);
+		return "redirect:/home";
+	}
 
 //********************************************************************************
 
@@ -165,10 +170,7 @@ public String testPage(@ModelAttribute("newImage") Image newImage) {
 //********************************************************************************
 
 //********************************************************************************
-@RequestMapping("/splash")
-public String splash() {
-	return "splash.jsp";
-}
+
 //*******************************************************************************
 
 	
