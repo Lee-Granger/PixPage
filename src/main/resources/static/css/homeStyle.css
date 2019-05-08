@@ -2,6 +2,20 @@
 			border: 2px solid black;	
 			width: 10%;
 			display: inline-block;
+			margin-top: 10px;
+		}
+		
+		.friendsList {
+			border: 2px solid black;
+			width: 10%;
+			display: inline-block;
+			float: right;
+			margin-top: 10px;
+		}
+		
+		div p {
+			font-size: .9em; 
+			text-align: center
 		}
 		
 		li {
@@ -19,7 +33,7 @@
 			text-align: right;
 		}
 		
-		.albumsView h4 {
+		 h4 {
 			display: inline-block;
 			margin-top: -1px;
 			text-decoration: underline;
@@ -28,6 +42,7 @@
 		.addAlbumLink {
 			float: right;
 			margin-right: 10px;
+			margin-top: 10px;
 		}
 		
 		.albumLink {

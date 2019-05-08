@@ -55,7 +55,7 @@ public String loginPage() {
 public String registerUser(@Valid @ModelAttribute("newUser")User user, BindingResult result, HttpSession session) {
 		uservalidator.validate(user, result);
 		if(result.hasErrors()) {
-			return "index.jsp";
+			return "splash.jsp";
 		} else {
 			User newUser = appServ.registerUser(user);
 			session.setAttribute("userId", newUser.getId());
@@ -73,7 +73,7 @@ public String loginUser(@RequestParam("email") String email, @RequestParam("pass
 		return "redirect:/home";
 	} else {
 		model.addAttribute("error", "Invalid Credentials.  Please try again.");
-		return "index.jsp";
+		return "splash.jsp";
 	}
 }
 //********************************************************************************
@@ -146,13 +146,27 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 //********************************************************************************
 	@RequestMapping("/image/delete/{id}")
 	public String deleteImage(@PathVariable("id") Long id) {
+		Long album = appServ.findImageById(id).getAlbum().getId();
 		appServ.deleteImage(id);
-		return "redirect:/home";
+		return "redirect:/album/view/" + album;
 	}
 
 //********************************************************************************
+	@RequestMapping("/home/friend/list")
+	public String showFriendsList(HttpSession session, Model model) {
+		User user = appServ.findUserById((Long) session.getAttribute("userId"));
+		model.addAttribute("user", user);
+		return "friendsList.jsp";
+		
+	}
 
 //********************************************************************************
+	@RequestMapping("/remove/friend/{id}")
+	public String removeFriend(@PathVariable("id") Long id, HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		appServ.removeFriend(userId, id);
+		return "redirect:/home";
+	}
 
 //********************************************************************************
 //********************************************************************************

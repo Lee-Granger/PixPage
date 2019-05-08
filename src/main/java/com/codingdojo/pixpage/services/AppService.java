@@ -165,5 +165,10 @@ public void deleteImage(Long Id ) {
 }
 
 //**************************************************************************************************
+public void removeFriend(Long userId, Long otherId) {
+	Users_Friends rel = UserFriendrep.doesRelationshipExist(userId, otherId);
+	UserFriendrep.delete(rel);
+}
+//**************************************************************************************************
 
 }

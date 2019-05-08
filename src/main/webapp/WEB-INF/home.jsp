@@ -13,8 +13,8 @@
 <body>
 <h1>Welcome <c:out value="${ user.firstName }"/>!</h1>
 <div class="logout"><a href="/logout">logout</a></div>
+<h4>Here are your albums</h4><a href="/album/add/new" class="addAlbumLink">Add Album</a>
 <div class="albumsView">
-	<h4>Here are your albums</h4><a href="/album/add/new" class="addAlbumLink">Add Album</a>
 	<br>
 	<c:forEach items="${ user.albums }" var="album">
 		<div class="albumLink">
@@ -24,7 +24,7 @@
 </div>
 
 <div class="suggestedUsers">
-	<p style="font-size: .9em; text-align:center">Here are some suggested users</p>
+	<p>Here are some suggested users</p>
 	<ul>
 		<c:forEach items="${ userList }" var="person">
 			<c:choose>
@@ -36,6 +36,9 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
+</div>
+<div class="friendsList">
+	<p style="font-size: .9em; text-align:center"><c:out value="You have: ${ user.friends.size() }"/> <a href="home/friend/list"> friend(s)</a></p>
 </div>
 	
 </body>
