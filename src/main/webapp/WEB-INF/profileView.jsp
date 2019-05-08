@@ -30,7 +30,16 @@
 			<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a> 
 		</div>
 	</c:forEach>
-</div>
 	
+</div>
+<c:choose>
+	<c:when test="${ status == false }">
+		<a href="/friend/add/${ otherUser.id }">Make Friend</a>
+	</c:when>
+	<c:otherwise>
+		<p>You are already Friends</p>
+	</c:otherwise>
+</c:choose>
+
 </body>
 </html>

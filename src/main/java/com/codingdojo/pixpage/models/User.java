@@ -38,13 +38,13 @@ public class User {
 	
 	private String location;
 	
-	@Size(max=250, message="Get out your own ass")
+	@Size(max=250, message="Please shorten your bio")
 	private String bio;
 	
 	@Email(message="Please enter a valid email")
 	private String email;
 	
-	@Size(min=3, message="You're password is weak...like you")
+	@Size(min=3, message="You're password is weak")
 	private String password;
 	
 	@Transient
