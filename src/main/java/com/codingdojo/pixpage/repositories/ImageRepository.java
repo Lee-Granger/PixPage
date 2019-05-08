@@ -12,5 +12,8 @@ import com.codingdojo.pixpage.models.Image;
 public interface ImageRepository extends CrudRepository<Image, Long>{
 	@Query(value="SELECT * FROM pix.images WHERE album_id = ?1", nativeQuery=true)
 	List<Image> findByAlbum(Long albumId);
+	
+	//delete image by id
+	void deleteById(Long Id);
 
 }

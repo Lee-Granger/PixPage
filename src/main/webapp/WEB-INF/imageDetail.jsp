@@ -15,6 +15,8 @@
 <img src="data:image/png;base64,${ image.base64 }" width="200" height="150"/>
 <p>
 	<c:out value="${ image.description }"/>
+	<br />
+	<a href="/image/delete/${ image.id }"> DELETE</a>
 </p>
 	
 </body>
