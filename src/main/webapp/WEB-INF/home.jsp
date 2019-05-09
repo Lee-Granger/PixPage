@@ -19,6 +19,7 @@
 	<c:forEach items="${ user.albums }" var="album">
 		<div class="albumLink">
 			<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
+			<p>Pics in album: <c:out value="${ album.images.size() }"/></p>
 		</div>
 	</c:forEach>
 </div>
@@ -40,6 +41,5 @@
 <div class="friendsList">
 	<p style="font-size: .9em; text-align:center"><c:out value="You have: ${ user.friends.size() }"/> <a href="home/friend/list"> friend(s)</a></p>
 </div>
-	
 </body>
 </html>
