@@ -11,6 +11,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.codingdojo.pixpage.models.Album;
+import com.codingdojo.pixpage.models.Comment;
 import com.codingdojo.pixpage.models.Image;
 import com.codingdojo.pixpage.models.User;
 import com.codingdojo.pixpage.models.Users_Friends;
@@ -168,6 +169,10 @@ public void deleteImage(Long Id ) {
 public void removeFriend(Long userId, Long otherId) {
 	Users_Friends rel = UserFriendrep.doesRelationshipExist(userId, otherId);
 	UserFriendrep.delete(rel);
+}
+//**************************************************************************************************
+public Comment addComment(Comment newComment) {
+	return cRep.save(newComment);
 }
 //**************************************************************************************************
 

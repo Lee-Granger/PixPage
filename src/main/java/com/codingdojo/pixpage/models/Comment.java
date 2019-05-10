@@ -31,6 +31,10 @@ public class Comment {
 	@JoinColumn(name="image_id")
 	private Image image;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	public Comment() {}
 	
 	
@@ -91,6 +95,16 @@ public class Comment {
 
 	public void setImage(Image image) {
 		this.image = image;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 

@@ -44,12 +44,14 @@ public class User {
 	@Email(message="Please enter a valid email")
 	private String email;
 	
-	@Size(min=3, message="You're password is weak")
+	@Size(min=3, message="Your password is weak")
 	private String password;
 	
 	@Transient
 	private String passwordConfirmation;
 	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
@@ -251,13 +253,19 @@ public class User {
 	}
 
 
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
-
 
 
 	public void setCreatedAt(Date createdAt) {
