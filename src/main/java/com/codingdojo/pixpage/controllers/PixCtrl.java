@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.pixpage.models.Album;
+import com.codingdojo.pixpage.models.Comment;
 import com.codingdojo.pixpage.models.Image;
 import com.codingdojo.pixpage.models.User;
 import com.codingdojo.pixpage.services.AppService;
@@ -126,9 +127,10 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 
 //********************************************************************************
 	@RequestMapping("/image/view/{id}")
-	public String imageDetail(@PathVariable("id") Long id, Model model) {
+	public String imageDetail(@PathVariable("id") Long id, @ModelAttribute("newComment") Comment newComment, Model model, HttpSession session) {
 		Image image = appServ.findImageById(id);
 		model.addAttribute("image", image);
+		model.addAttribute("sessId", (Long) session.getAttribute("userId"));
 		return "imageDetail.jsp";
 	}
 //********************************************************************************
@@ -169,6 +171,17 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 	}
 
 //********************************************************************************
+	@PostMapping("/post/comment/{imageId}")
+	public String postComment(@Valid @ModelAttribute("newComment") Comment newComment, BindingResult result, HttpSession session, @PathVariable("imageId") Long imageId) {
+		User user = appServ.findUserById((Long)session.getAttribute("userId"));
+		Image image = appServ.findImageById(imageId);
+		newComment.setImage(image);
+		newComment.setUser(user);
+		appServ.addComment(newComment);	
+		return "redirect:/image/view/" + imageId;
+		
+		
+	}
 //********************************************************************************
 //********************************************************************************
 //********************************************************************************
