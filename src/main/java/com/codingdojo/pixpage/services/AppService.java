@@ -175,5 +175,10 @@ public Comment addComment(Comment newComment) {
 	return cRep.save(newComment);
 }
 //**************************************************************************************************
+public void deleteImageComments(Long imageId) {
+	cRep.deleteImageComments(imageId);
+	
+}
+//**************************************************************************************************
 
 }

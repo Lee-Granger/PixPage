@@ -11,6 +11,7 @@
 </head>
 <body>
 <a href="/home" style="float:right">Home</a>
+<c:out value="id: ${ image.id }"/>
 <h3>This photo belongs to: <c:out value="${ image.owner.firstName }  ${ image.owner.lastName }"/></h3>
 <img src="data:image/png;base64,${ image.base64 }" width="200" height="150"/>
 <p>
