@@ -3,6 +3,7 @@ package com.codingdojo.pixpage.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -50,7 +51,7 @@ public class Image {
 	@JoinColumn(name="user_id")
 	private User owner;
 	
-	@OneToMany(mappedBy="image")
+	@OneToMany(mappedBy="image", cascade = CascadeType.REMOVE)
 	private List<Comment> comments;
 	
 	
