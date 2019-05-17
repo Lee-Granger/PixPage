@@ -9,7 +9,7 @@
 <style>
 	.wrapper {
 		width: 99%;
-		height: 475px;
+		height: 900px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -26,16 +26,33 @@
 		max-width: 99%;
 		}
 	button {
-		width: 170px;
+		width: 150px;
+		height: 25px;
+		border-radius: 5px;
+		justify-content: center;
+		align-items: center;
+		
 	}
 	.login {
 		margin-top: 175px;
 	}
 	h1 {
-		position: relative;
+		/* position: relative; */
 		left: 10px;
 		top: 100px;
 		font-family: Verdana;
+		color:white;
+		justify-content: center;
+		font-size: 50px;
+	}
+	h4 {
+		color:white;
+	}
+	.header {
+		background-color: black;
+		height: 65px;
+		justify-content:center;
+		text-align:center;
 	}
 	
 
@@ -44,13 +61,17 @@
 	<title>Splash Page</title>
 </head>
 <body>
+<div class="header">
+	<h1>Welcome to PixPage!</h1>
+</div>
 <div class="wrapper">
 	<div class="links">
-	<h1>PixPage!</h1>
-		<a href="/login/page">Login</a>
-		<a href="/register/page">Sign Up</a>
+
+	<h4>Come join our community, show us what you're passionate about!</h4>
+		<button><a href="/login/page">Login</a></button>
+		<button><a href="/register/page">Sign Up</a></button>
 	</div>
-	<img src="<c:out value="/image/starryNight.png" />"/>
+	<img src="<c:out value="/image/night_sky.jpg" />"/>
 </div>
 	
 </body>
