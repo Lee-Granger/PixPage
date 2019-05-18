@@ -1,55 +1,83 @@
-		.suggestedUsers {
-			border: 2px solid black;	
+		.leftBar {
+			height: 100%;
 			width: 10%;
-			display: inline-block;
-			margin-top: 10px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			overflow-x: hidden;
+			padding-top: 20px;
+			background-color: #4286f4;
 		}
 		
-		.friendsList {
-			border: 2px solid black;
+		.rightBar {
+			height: 100%;
 			width: 10%;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			overflow-x: hidden;
+			padding-top: 20px;
+			font-size: 20px;
+			background-color: #4286f4;
+		}
+		
+		.leftBar a {
+			padding: 6px 8px 6px 16px;
+			text-decoration: none;
+			font-size: 25px;
+			display: block;
+			color: black;
+		}
+		
+		.rightBar a {
+			padding: 6px 8px 6px 16px;
+			text-decoration: none;
+			font-size: 25px;
+			display: block;
+			color: black;
+		}
+		
+		h1 {
 			display: inline-block;
-			float: right;
-			margin-top: 10px;
 		}
 		
-		div p {
-			font-size: .9em; 
-			text-align: center
-		}
-		
-		li {
-			margin-left: -20px;
-			font-size: .7em;
+		.content {
+			margin-left: 10%;
+			width: 80%;
+			display: inline-block;
+			outline: 2px solid blue;
+			font-size: 1.2rem;
 		}
 		
 		.albumsView {
-			min-width: 70%;
-			border: 2px solid black;
-			margin-top: 20px;
-		}
-		
-		.logout {
-			text-align: right;
-		}
-		
-		 h4 {
-			display: inline-block;
-			margin-top: -1px;
-			text-decoration: underline;
-		}
-		
-		.addAlbumLink {
-			float: right;
-			margin-right: 10px;
-			margin-top: 10px;
+			outline: 2px solid red;
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
 		}
 		
 		.albumLink {
-			display: inline-block;
-			border: 2px solid orange;
-			width: 65px;
-			height: 65px;
-			margin: 10px;
-			text-align: center;
+			width: 9em;
+			height: 7.5em;
+			outline: 2px solid black;
+			margin: 5px 5%;
+			background-image: url("/");
 		}
+		
+		.firstImage {
+			width: 100%;
+			height: 99%;
+			/* position: absolute; */
+			left: 0px;
+			top: 0px;
+			z-index: -2;
+		}
+		
+		.albumLink a {
+			z-index: 1;
+			font-color: red;
+		}
+		
+		
