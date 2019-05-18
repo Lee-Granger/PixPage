@@ -11,21 +11,36 @@
 	<title>Home</title>
 </head>
 <body>
+<div class="leftBar">
+	<a href="/home">Home</a>
+	<a href="/logout">Logout</a>
+</div>
+
+
+
+<div class="content">
 <h1>Welcome <c:out value="${ user.firstName }"/>!</h1>
-<div class="logout"><a href="/logout">logout</a></div>
-<h4>Here are your albums</h4><a href="/album/add/new" class="addAlbumLink">Add Album</a>
+
+<%-- <img src="data:image/png;base64,${ user.albums[0].images[0].base64 }" width="200" height="150"/> --%>
+
+<h4>My Albums:</h4>
 <div class="albumsView">
-	<br>
 	<c:forEach items="${ user.albums }" var="album">
 		<div class="albumLink">
+		<%-- <img class="firstImage" src="data:image/png;base64,${ album.images[0].base64 }"/> --%>
 			<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
 			<p>Pics in album: <c:out value="${ album.images.size() }"/></p>
 		</div>
 	</c:forEach>
 </div>
 
-<div class="suggestedUsers">
-	<p>Here are some suggested users</p>
+
+
+</div>
+<h4><a href="/album/add/new">Add Album</a></h4>
+<div class="rightBar">
+	<a href="/home/friend/list"><c:out value="You have: ${ user.friends.size() } friend(s)"/></a>
+	<p>Suggested Users:</p>
 	<ul>
 		<c:forEach items="${ userList }" var="person">
 			<c:choose>
@@ -37,9 +52,6 @@
 			</c:choose>
 		</c:forEach>
 	</ul>
-</div>
-<div class="friendsList">
-	<p style="font-size: .9em; text-align:center"><c:out value="You have: ${ user.friends.size() }"/> <a href="home/friend/list"> friend(s)</a></p>
 </div>
 </body>
 </html>
