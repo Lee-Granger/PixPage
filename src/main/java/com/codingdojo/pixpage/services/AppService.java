@@ -175,9 +175,17 @@ public Comment addComment(Comment newComment) {
 	return cRep.save(newComment);
 }
 //**************************************************************************************************
-public void deleteImageComments(Long imageId) {
-	cRep.deleteImageComments(imageId);
-	
+public Comment findComment(Long id) {
+	Optional <Comment> c = cRep.findById(id);
+	if(c.isPresent()) {
+		return c.get();
+	} else {
+		return null;
+	}
+}
+//**************************************************************************************************
+public void deleteComment(Long id) {
+	cRep.deleteById(id);
 }
 //**************************************************************************************************
 
