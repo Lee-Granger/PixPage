@@ -126,6 +126,12 @@ public String viewAlbum(@PathVariable("id") Long id, Model model, HttpSession se
 }
 
 //********************************************************************************
+@RequestMapping("/album/delete/{id}")
+public String deleteAlbum(@PathVariable("id")Long id) {
+	appServ.deleteAlbum(id);
+	return "redirect:/home";
+}
+//********************************************************************************
 	@RequestMapping("/image/view/{id}")
 	public String imageDetail(@PathVariable("id") Long id, @ModelAttribute("newComment") Comment newComment, Model model, HttpSession session) {
 		Image image = appServ.findImageById(id);

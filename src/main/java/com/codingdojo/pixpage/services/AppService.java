@@ -86,6 +86,10 @@ public class AppService {
 	}
 	
 //**************************************************************************************************
+	public void deleteAlbum(Long id) {
+		aRep.deleteById(id);
+	}
+//**************************************************************************************************
 	public Album findAlbumById(Long id) {
 		Optional<Album> album = aRep.findById(id);
 		if(album.isPresent()) {

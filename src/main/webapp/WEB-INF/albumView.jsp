@@ -6,21 +6,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-		.img {
-			display: inline-block;
-			border: 2px solid red;
-			width: 200px;
-			height: 150px;
-			text-align: center;
-		}
-	</style>
+	<link href="/css/albumViewStyle.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>View Album</title>
 </head>
 <body>
 <a href="/home" style="float:right">Home</a>
 <h1>Album Name: <c:out value="${ album.name }"/></h1>
+<c:choose>
+	<c:when test="${ album.creator.id == sessId }">
+		<form action="/album/delete/${ album.id }">
+			<input type="submit" value="Delete Album" onclick="return confirm('Are you sure you want to delete this album?');">
+		</form>
+	</c:when>
+	<c:otherwise></c:otherwise>
+</c:choose>
 <h4>This album belongs to: <c:out value="${ album.creator.firstName }"/> <c:out value="${ album.creator.lastName }"/></h4>
 <h6><c:out value="${message}"/></h6>
 
