@@ -3,6 +3,7 @@ package com.codingdojo.pixpage.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Album {
 	@Size(max=250, message="Please make a description that is short and sweet.")
 	private String description;
 	
-	@OneToMany(mappedBy="album", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="album", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Image> images;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
