@@ -1,3 +1,7 @@
+		body {
+			background-color: #dee5ef;
+		}
+		
 		.leftBar {
 			height: 100%;
 			width: 10%;
@@ -25,7 +29,6 @@
 		
 		.leftBar a {
 			padding: 6px 8px 6px 16px;
-			text-decoration: none;
 			font-size: 25px;
 			display: block;
 			color: black;
@@ -47,37 +50,38 @@
 			margin-left: 10%;
 			width: 80%;
 			display: inline-block;
-			outline: 2px solid blue;
 			font-size: 1.2rem;
 		}
 		
 		.albumsView {
-			outline: 2px solid red;
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
+		}
+		
+		.linkBorder {
+			text-align: center;
+			padding-right: 3px;
+			display: inline-block;
+			width: 11em;
+			height: 10em;
+			margin: 2%;
+		}
+		
+		.linkBorder p{
+			margin-top: -1%;
+		}
+		
+		.linkBorder a {
+			font-size: 1.4rem;
 		}
 		
 		.albumLink {
 			width: 9em;
 			height: 7.5em;
 			outline: 2px solid black;
-			margin: 5px 5%;
-			background-image: url("/");
+			margin-left: 10%;
 		}
 		
-		.firstImage {
-			width: 100%;
-			height: 99%;
-			/* position: absolute; */
-			left: 0px;
-			top: 0px;
-			z-index: -2;
-		}
-		
-		.albumLink a {
-			z-index: 1;
-			font-color: red;
-		}
 		
 		

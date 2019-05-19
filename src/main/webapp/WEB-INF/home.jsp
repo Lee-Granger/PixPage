@@ -17,19 +17,24 @@
 </div>
 
 
-
 <div class="content">
 <h1>Welcome <c:out value="${ user.firstName }"/>!</h1>
 
-<%-- <img src="data:image/png;base64,${ user.albums[0].images[0].base64 }" width="200" height="150"/> --%>
 
-<h4>My Albums:</h4>
+<h4>My Albums: <span style="float:right"><a href="/album/add/new">Add Album</a></span></h4>
 <div class="albumsView">
 	<c:forEach items="${ user.albums }" var="album">
-		<div class="albumLink">
-		<%-- <img class="firstImage" src="data:image/png;base64,${ album.images[0].base64 }"/> --%>
-			<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
-			<p>Pics in album: <c:out value="${ album.images.size() }"/></p>
+		<div class="linkBorder">
+			<c:choose>
+				<c:when test="${ album.images.size() == 0 }">
+					<div class="albumLink"><p>Empty Album</p></div>
+				</c:when>
+				<c:otherwise>
+					<div class="albumLink" style="background: url(data:image/png;base64,${ album.images[0].base64 }); background-size: 100% 100% "></div>
+				</c:otherwise>
+			</c:choose>		
+		<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
+		<p>Pics in album: <c:out value="${ album.images.size() }"/></p>
 		</div>
 	</c:forEach>
 </div>
@@ -37,7 +42,7 @@
 
 
 </div>
-<h4><a href="/album/add/new">Add Album</a></h4>
+
 <div class="rightBar">
 	<a href="/home/friend/list"><c:out value="You have: ${ user.friends.size() } friend(s)"/></a>
 	<p>Suggested Users:</p>

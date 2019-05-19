@@ -23,7 +23,7 @@
 		<c:out value="${ comment.user.firstName } ${ comment.user.lastName }: ${ comment.comment }"/>
 		<c:choose>
 			<c:when test="${ comment.user.id == sessId }">
-				<a href="/comment/delete/${ comment.id }">- Delete this comment</a> 
+				<a href="/comment/delete/${ comment.id }/${ image.id }">- Delete this comment</a> 
 			</c:when>
 		</c:choose>
 	</p>
