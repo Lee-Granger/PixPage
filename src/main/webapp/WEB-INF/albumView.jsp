@@ -11,35 +11,28 @@
 	<title>View Album</title>
 </head>
 <body>
-<a href="/home" style="float:right">Home</a>
-<h1>Album Name: <c:out value="${ album.name }"/></h1>
-<c:choose>
-	<c:when test="${ album.creator.id == sessId }">
-		<form action="/album/delete/${ album.id }">
-			<input type="submit" value="Delete Album" onclick="return confirm('Are you sure you want to delete this album?');">
-		</form>
-	</c:when>
-	<c:otherwise></c:otherwise>
-</c:choose>
-<h4>This album belongs to: <c:out value="${ album.creator.firstName }"/> <c:out value="${ album.creator.lastName }"/></h4>
-<h6><c:out value="${message}"/></h6>
-
-
-
-<c:forEach items="${ album.images }" var="image">
-	<div class="img">
-		<a href="/image/view/${ image.id }"><img src="data:image/png;base64,${ image.base64 }" width="200" height="150"/></a>
-		<c:choose>
+<%--<c:choose> 
 			<c:when test="${ album.creator.id == sessId }">
 				<form action="/image/delete/${ image.id }">
 					<input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this picture?');">
 				</form>
 			</c:when>
 			<c:otherwise></c:otherwise>
-		</c:choose>
+		</c:choose> --%>
+<div class="leftBar">
+	<a href="/home">Home</a>
+	<a href="/logout">Logout</a>
+</div>
+
+
+<div class="content">
+<div class="images">
+<c:forEach items="${ album.images }" var="image">
+	<div class="imgBorder">
+		<a href="/image/view/${ image.id }"><img src="data:image/png;base64,${ image.base64 }" /></a>
 	</div>
 </c:forEach>
-
+</div>
 
 <c:choose>
 <c:when test="${ album.creator.id == sessId }">
@@ -61,6 +54,23 @@
 </c:when>
 <c:otherwise></c:otherwise>
 </c:choose>
+</div>
+
+<div class="rightBar">
+	<p class="albumName"><c:out value="${ album.name }"/></p>
+	<div class="line"></div>
+	<c:choose>
+	<c:when test="${ album.creator.id == sessId }">
+		<form action="/album/delete/${ album.id }">
+			<input type="submit" value="Delete Album" onclick="return confirm('Are you sure you want to delete this album?');">
+		</form>
+	</c:when>
+	<c:otherwise>
+		<p><a href="/profile/view/${ album.creator.id }">Back to <c:out value="${ album.creator.firstName }"/>'s profile</a></p>
+	</c:otherwise>
+</c:choose>
+</div>
+
 
 </body>
 </html>

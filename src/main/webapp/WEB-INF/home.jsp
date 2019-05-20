@@ -30,7 +30,7 @@
 					<div class="albumLink"><p>Empty Album</p></div>
 				</c:when>
 				<c:otherwise>
-					<div class="albumLink" style="background: url(data:image/png;base64,${ album.images[0].base64 }); background-size: 100% 100% "></div>
+					<a href="/album/view/${ album.id }"><div class="albumLink" style="background: url(data:image/png;base64,${ album.images[0].base64 }); background-size: 100% 100% "></div></a>
 				</c:otherwise>
 			</c:choose>		
 		<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
@@ -44,7 +44,7 @@
 </div>
 
 <div class="rightBar">
-	<a href="/home/friend/list"><c:out value="You have: ${ user.friends.size() } friend(s)"/></a>
+	<p>You have: <a href="/home/friend/list"><c:out value="${ user.friends.size() }"/> friend(s)</a></p>
 	<p>Suggested Users:</p>
 	<ul>
 		<c:forEach items="${ userList }" var="person">
