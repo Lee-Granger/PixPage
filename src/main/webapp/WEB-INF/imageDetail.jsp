@@ -6,18 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="/css/imageDetailStyle.css">
 	<meta charset="UTF-8">
 	<title>Image Detail</title>
 </head>
 <body>
-<a href="/home" style="float:right">Home</a>
-<h3>This photo belongs to: <c:out value="${ image.owner.firstName }  ${ image.owner.lastName }"/></h3>
-<img src="data:image/png;base64,${ image.base64 }" width="200" height="150"/>
-<p>
+
+<div class="leftBar">
+	<a href="/home">Home</a>
+	<a href="/logout">Logout</a>
+</div>
+
+<div class="content">
+<div class="imageWrapper">
+	<img src="data:image/png;base64,${ image.base64 }"/>
+</div>
+<p class="desc">
 	<c:out value="${ image.description }"/>
 </p>
 <br />
-<hr>
+<div class="comments">
 <c:forEach items="${ image.comments }" var="comment">
 	<p>
 		<c:out value="${ comment.user.firstName } ${ comment.user.lastName }: ${ comment.comment }"/>
@@ -28,13 +36,7 @@
 		</c:choose>
 	</p>
 </c:forEach>
-<hr>
-<c:choose>
-	<c:when test="${ sessId == image.owner.id }">	
-		<a href="/image/delete/${ image.id }"> DELETE</a>
-	</c:when>
-	<c:otherwise></c:otherwise>
-</c:choose>
+</div>
 <form:form action="/post/comment/${ image.id }" method="post" modelAttribute="newComment">
 	<p>
 		<form:label path="comment">Add A Comment: </form:label>
@@ -43,6 +45,18 @@
 	</p>
 	<input type="submit" value="Add Message"/>
 </form:form>
+</div>
+
+<div class="rightBar">
+	<c:choose>
+		<c:when test="${ sessId == image.owner.id }">	
+			<form action="/image/delete/${ image.id }">
+			<input type="submit" value="Delete Image" onclick="return confirm('Are you sure you want to delete this image?');">
+		</form>
+		</c:when>
+		<c:otherwise></c:otherwise>
+	</c:choose>
+</div>
 	
 </body>
 </html>
