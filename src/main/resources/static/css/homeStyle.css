@@ -1,22 +1,22 @@
-		body {
+body {
 			background-color: #dee5ef;
 		}
 		
 		.leftBar {
 			height: 100%;
-			width: 10%;
+			width: 50px;
 			position: fixed;
 			z-index: 1;
 			top: 0;
 			left: 0;
 			overflow-x: hidden;
 			padding-top: 20px;
-			background-color: #4286f4;
+			background-color: #043a4c;
 		}
 		
 		.rightBar {
 			height: 100%;
-			width: 10%;
+			width: 50px;
 			position: fixed;
 			z-index: 1;
 			top: 0;
@@ -24,19 +24,39 @@
 			overflow-x: hidden;
 			padding-top: 20px;
 			font-size: 1.5rem;
-			background-color: #4286f4;
+			background-color: #043a4c;
+		}
+		
+		.bottomBar {
+			width: 100%;
+			height: 50px;
+			position: fixed;
+			z-index: 1;
+			background-color: #043a4c;
+			overflow-x: hidden;
+			bottom: 0;			
+		}
+		
+		.topBar {
+			width: 100%;
+			height: 50px;
+			position: fixed;
+			z-index: 1;
+			background-color: #043a4c;
+			overflow-x: hidden;
+			top: 0;			
 		}
 		
 		.leftBar a {
 			padding: 6px 8px 6px 16px;
 			font-size: 25px;
 			display: block;
-			color: black;
+			color: white;
 		}
 		
 		.rightBar a {
 			display: block;
-			color: black;
+			color: white;
 		}
 		
 		h1 {
@@ -54,6 +74,10 @@
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
+		}
+		
+		.albumsView a{
+			color: #043a4c;
 		}
 		
 		.linkBorder {
@@ -76,9 +100,62 @@
 		.albumLink {
 			width: 9em;
 			height: 7.5em;
-			outline: 2px solid black;
-			margin-left: 10%;
+			outline: 5px solid #043a4c;
+			margin-bottom: 10px;
+			color:#043a4c;
 		}
 		
+		.welcome {
+			margin-top: 50px;
+			color: #043a4c;
+		}
 		
+		.navBar {
+		margin-top:75px;
+		background-color: #043a4c;
+		height: 200 px;
+		color:white;
+		font-size:30px;
+		color: #dee5ef;
+		padding-left: 10px;
+		padding-right: 10px;
+		border-radius: 10px;
 		
+		}
+		
+		.navText{
+			display: inline-block;
+			font-family: Verdana;
+		}
+		
+		a:link
+		{
+		    color:white;
+		    text-decoration:none;
+		}
+		
+		a:visited
+		{
+		    color:white;
+		    text-decoration:none;
+		}
+		
+		a:hover 
+		{
+		    color:white;
+		    text-decoration:none;
+		}
+		
+		.linkColor:visited
+		{
+			color: #043a4c;
+		}
+		.linkColor:hover 
+		{
+			color: #043a4c;
+		}
+		.linkColor:a:link 
+		{
+			color: #043a4c;
+		}
+	
