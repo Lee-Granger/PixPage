@@ -18,7 +18,7 @@
 <div class="content">
 <div class="navBar">
 	<p class="navText">PixPage</p>
-	<span style="float:right" >
+	<span style="float:right; margin-top: 1em;" >
 	<a href="/home">Home</a>
 	<a href="/home/friend/list">Friends</a>
 	<a href="/logout">Logout</a>	
@@ -40,7 +40,7 @@
 				</c:otherwise>
 			</c:choose>		
 		<a class="linkColor" href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
-<%-- 		<p>Pics in album: <c:out value="${ album.images.size() }"/></p> --%>
+ 		<p>Pics in album: <c:out value="${ album.images.size() }"/></p> 
 		</div>
 	</c:forEach>
 </div>
@@ -50,19 +50,6 @@
 </div>
 
 <div class="rightBar">
-	<%-- <p>You have: <a href="/home/friend/list"><c:out value="${ user.friends.size() }"/> friend(s)</a></p> --%>
-	<%-- <p>Suggested Users:</p>
-	<ul>
-		<c:forEach items="${ userList }" var="person">
-			<c:choose>
-				<c:when test="${ user.id == person.id}">
-				</c:when>
-				<c:otherwise>
-					<li><a href="/profile/view/${ person.id }"><c:out value="${ person.firstName }"/>  <c:out value="${ person.lastName }"/></a></li>
-				</c:otherwise>
-			</c:choose>
-		</c:forEach>
-	</ul> --%>
 </div>
 <div class="bottomBar"></div>
 </body>
