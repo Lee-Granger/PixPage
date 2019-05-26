@@ -13,8 +13,6 @@
 <body>
 <div class="topBar"></div>
 <div class="leftBar"></div>
-
-
 <div class="content">
 <div class="navBar">
 	<p class="navText">PixPage</p>

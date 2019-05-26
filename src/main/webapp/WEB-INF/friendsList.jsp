@@ -6,21 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-		h2 {
-			display: inline-block;
-		}
-		
-		.home {
-			float: right;
-		}
-	</style>
+	<link href="/css/friendListStyle.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>Friends List</title>
 </head>
 <body>
-<div class="wrapper">
-	<h2>My Friends:</h2> <a class="home" href="/home">Home</a>
+<div class="topBar"></div>
+<div class="leftBar"></div>
+<div class="rightBar"></div>
+<div class="bottomBar"></div>
+<div class="content">
+	<div class="navBar">
+		<p class="navText">PixPage</p>
+		<span style="float:right; margin-top: 1em;" >
+		<a href="/home">Home</a>
+		<a href="/home/friend/list">Friends</a>
+		<a href="/logout">Logout</a>	
+		</span>
+	</div>
+<div class="box">
+	<h2>My Friends</h2>
 	<hr>
 	<ul>
 		<c:forEach items="${ user.friends }" var="friend">
@@ -28,6 +33,17 @@
 		</c:forEach>
 	</ul>
 </div>
+<div class="box">
+	<h2>Suggested Friends</h2>
+	<hr>
+	<ul>
+		<c:forEach items="${ user.friends }" var="friend">
+			<li><a href="/profile/view/${ friend.id }"><c:out value="${ friend.firstName } ${ friend.lastName }"/></a></li>
+		</c:forEach>
+	</ul>
+</div>
+</div>
+
 	
 </body>
 </html>

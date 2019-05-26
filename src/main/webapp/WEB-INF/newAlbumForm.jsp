@@ -28,7 +28,6 @@
 			<input type="submit" value="Create Album"/>
 		</p>
 	</form:form>
-	<p> just adding this to text git</p>
 </div>
 	
 </body>
