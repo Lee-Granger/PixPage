@@ -6,10 +6,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="/css/newAlbumFormStyle.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>Create Album</title>
 </head>
 <body>
+<div class="topBar"></div>
+<div class="leftBar"></div>
+<div class="bottomBar"></div>
+<div class="rightBar"></div>
+<div class="content">
+<div class="navBar">
+	<p class="navText">PixPage</p>
+	<span style="float:right; margin-top: 1em;" >
+	<a href="/home">Home</a>
+	<a href="/home/friend/list">Friends</a>
+	<a href="/logout">Logout</a>	
+	</span>
+</div>
 <h1>Hey <c:out value="${ user.firstName }"/> let's create a new album!</h1>
 <div class="form">
 	<form:form action="/post/new/album" method="post" modelAttribute="newAlbum">
@@ -28,6 +42,7 @@
 			<input type="submit" value="Create Album"/>
 		</p>
 	</form:form>
+</div>
 </div>
 	
 </body>
