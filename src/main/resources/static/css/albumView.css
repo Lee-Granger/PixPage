@@ -99,29 +99,27 @@ body {
 		
 /* _______________________________________end background styling___________________________________________________*/
 
-* {
-	margin: 0;
-	padding: 0;
+
+hr{
+	color:#043a4c;
 }
 
-body {
-	background-color: #dee5ef;
-}
 
 .images {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	outline: 2px solid red;
+	/* outline: 2px solid red; */
 }
 
 .imgBorder {
 	width: 11em;
 	height: 9em;
 	margin: 1.5em;
-	outline: 2px solid purple;
-	background-color: orange;
+	outline: 5px solid #043a4c;
 	display: flex;
+	border:5px;
+	margin-bottom: 10px;
 	
 }
 
@@ -140,5 +138,3 @@ body {
 	height: 2px;
 	margin: 3em auto;
 }
-	
-	

@@ -6,26 +6,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="/css/albumViewStyle.css" rel="stylesheet">
+	<link href="/css/albumView.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>View Album</title>
 </head>
 <body>
-<%--<c:choose> 
-			<c:when test="${ album.creator.id == sessId }">
-				<form action="/image/delete/${ image.id }">
-					<input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this picture?');">
-				</form>
-			</c:when>
-			<c:otherwise></c:otherwise>
-		</c:choose> --%>
-<div class="leftBar">
+<div class="rightBar"></div>
+<div class="leftBar"></div>
+<div class="topBar"></div>
+<div class="bottomBar"></div>
+<div class="content">
+<div class="navBar">
+	<p class="navText">PixPage</p>
+	<span style="float:right; margin-top: 1em;" >
 	<a href="/home">Home</a>
-	<a href="/logout">Logout</a>
+	<a href="/home/friend/list">Friends</a>
+	<a href="/logout">Logout</a>	
+	</span>
 </div>
 
-
-<div class="content">
+<p class="albumName"><c:out value="${ album.name }"/></p>
 <div class="images">
 <c:forEach items="${ album.images }" var="image">
 	<div class="imgBorder">
@@ -33,6 +33,7 @@
 	</div>
 </c:forEach>
 </div>
+<hr/>
 
 <c:choose>
 <c:when test="${ album.creator.id == sessId }">
@@ -56,7 +57,7 @@
 </c:choose>
 </div>
 
-<div class="rightBar">
+<%-- <div class="rightBar">
 	<p class="albumName"><c:out value="${ album.name }"/></p>
 	<div class="line"></div>
 	<c:choose>
@@ -69,7 +70,7 @@
 		<p><a href="/profile/view/${ album.creator.id }">Back to <c:out value="${ album.creator.firstName }"/>'s profile</a></p>
 	</c:otherwise>
 </c:choose>
-</div>
+</div> --%>
 
 
 </body>
