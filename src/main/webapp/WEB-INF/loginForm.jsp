@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="/css/loginFormStyle.css" rel="stylesheet"/>
+	<link href="/css/loginFormStyleSheet.css" rel="stylesheet"/>
 	<meta charset="UTF-8">
 	<title>Login</title>
 </head>
 <body>
-
+<div class="wrapper">
 <div class="loginBox">
 		<h2>Login</h2>
 		<form action="/login" method="post">
@@ -30,8 +30,11 @@
 				<input type="submit" value="Login"/>
 			</p>
 		</form>
+		
 	</div>
-
+	
+	<img src="<c:out value="/image/night_sky.jpg" />"/>
+ </div>
 
 
 	

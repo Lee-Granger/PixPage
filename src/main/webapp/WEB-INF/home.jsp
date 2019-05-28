@@ -38,7 +38,7 @@
 				</c:otherwise>
 			</c:choose>		
 		<a class="linkColor" href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a>
- 		<p>Pics in album: <c:out value="${ album.images.size() }"/></p> 
+ 		<p style="margin-bottom: 100px;">Pics in album: <c:out value="${ album.images.size() }"/></p> 
 		</div>
 	</c:forEach>
 </div>

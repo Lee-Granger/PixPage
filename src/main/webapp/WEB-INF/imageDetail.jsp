@@ -6,18 +6,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/css/imageDetailStyle.css">
+	<link href="/css/imageDetail.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>Image Detail</title>
 </head>
 <body>
-
-<div class="leftBar">
-	<a href="/home">Home</a>
-	<a href="/logout">Logout</a>
-</div>
+<div class="rightBar"></div>
+<div class="leftBar"></div>
+<div class="topBar"></div>
+<div class="bottomBar"></div>
 
 <div class="content">
+<div class="navBar">
+	<p class="navText">PixPage</p>
+	<span style="float:right; margin-top: 1em;" >
+	<a href="/home">Home</a>
+	<a href="/home/friend/list">Friends</a>
+	<a href="/logout">Logout</a>	
+	</span>
+</div>
 <div class="imageWrapper">
 	<img src="data:image/png;base64,${ image.base64 }"/>
 </div>
@@ -25,8 +32,10 @@
 	<c:out value="${ image.description }"/>
 </p>
 <br />
+
 <div class="comments">
 <c:forEach items="${ image.comments }" var="comment">
+<hr />
 	<p>
 		<c:out value="${ comment.user.firstName } ${ comment.user.lastName }: ${ comment.comment }"/>
 		<c:choose>
@@ -35,8 +44,10 @@
 			</c:when>
 		</c:choose>
 	</p>
+<hr />
 </c:forEach>
 </div>
+
 <form:form action="/post/comment/${ image.id }" method="post" modelAttribute="newComment">
 	<p>
 		<form:label path="comment">Add A Comment: </form:label>
