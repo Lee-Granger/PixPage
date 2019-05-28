@@ -1,5 +1,6 @@
 package com.codingdojo.pixpage.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.annotation.MultipartConfig;
@@ -164,8 +165,24 @@ public String deleteAlbum(@PathVariable("id")Long id) {
 	public String showFriendsList(HttpSession session, Model model) {
 		User user = appServ.findUserById((Long) session.getAttribute("userId"));
 		model.addAttribute("user", user);
+		List<User> allUsers = appServ.findUsers();
+		List<User> friends = user.getFriends();
+		List<Long> friendIds = new ArrayList<Long>();
+		List<User> suggested = new ArrayList<User>();
+		for(int i =0; i < friends.size(); i++) {
+			friendIds.add(friends.get(i).getId());
+		};
+		while (suggested.size() != 5) {
+			for(int x = 0; x < allUsers.size(); x++) {
+				if (friendIds.contains(allUsers.get(x).getId()) || allUsers.get(x).getId() == session.getAttribute("userId")) {
+				} else {
+					suggested.add(allUsers.get(x));
+				}
+			}
+		}
+		System.out.println(suggested.size());
+		model.addAttribute("suggested", suggested);
 		return "friendsList.jsp";
-		
 	}
 
 //********************************************************************************

@@ -37,7 +37,7 @@
 	<h2>Suggested Friends</h2>
 	<hr>
 	<ul>
-		<c:forEach items="${ user.friends }" var="friend">
+		<c:forEach items="${ suggested }" var="friend">
 			<li><a href="/profile/view/${ friend.id }"><c:out value="${ friend.firstName } ${ friend.lastName }"/></a></li>
 		</c:forEach>
 	</ul>
