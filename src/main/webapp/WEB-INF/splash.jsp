@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="/css/splash.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/splashStyle.css"/>
 	<meta charset="UTF-8">
 	<title>Splash Page</title>
 </head>
@@ -20,7 +20,7 @@
 
 	<h4>Come join our community, show us what you're passionate about!</h4>
 		<a href="/login/page">Login</a>
-		<a href="/register/page">Sign Up</a>
+		<!-- <a href="/register/page">Sign Up</a> -->
 	</div>
 	<img src="<c:out value="/image/night_sky.jpg" />"/> 
 </div>

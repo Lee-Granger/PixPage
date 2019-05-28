@@ -39,11 +39,22 @@ a {
 	border-style: solid;
 	border-width: 2px;
 	border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+	margin: 0;
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin-top:10px;
 }
 
 .links {
-	margin-top: 11rem;
-	text-align: center;
+	/* margin-top: 30rem; */
+	margin: 0;
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
 }
 
 
