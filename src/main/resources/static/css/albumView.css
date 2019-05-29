@@ -130,6 +130,7 @@ hr{
 
 .albumName {
 	font-size: 2.5rem;
+	display:inline-block;
 }
 	
 .line {
@@ -137,4 +138,13 @@ hr{
 	width: 90%;
 	height: 2px;
 	margin: 3em auto;
+}
+
+.delete{
+	display:inline-block;
+	margin-top:40px;
+}
+
+.uploadImage{
+	margin-bottom:100px;
 }

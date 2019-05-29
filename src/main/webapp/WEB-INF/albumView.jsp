@@ -26,6 +26,19 @@
 </div>
 
 <p class="albumName"><c:out value="${ album.name }"/></p>
+<span style="float:right"><div class="delete">
+	<!-- <div class="line"></div> -->
+	<c:choose>
+	<c:when test="${ album.creator.id == sessId }">
+		<form action="/album/delete/${ album.id }">
+			<input type="submit" value="Delete Album" onclick="return confirm('Are you sure you want to delete this album?');">
+		</form>
+	</c:when>
+	<c:otherwise>
+		<p><a href="/profile/view/${ album.creator.id }">Back to <c:out value="${ album.creator.firstName }"/>'s profile</a></p>
+	</c:otherwise>
+</c:choose>
+</div></span>
 <div class="images">
 <c:forEach items="${ album.images }" var="image">
 	<div class="imgBorder">
@@ -33,8 +46,9 @@
 	</div>
 </c:forEach>
 </div>
-<hr/>
 
+<hr/>
+<div class="uploadImage">
 <c:choose>
 <c:when test="${ album.creator.id == sessId }">
 <form action="/image/upload/${ album.id }" method="post" enctype="multipart/form-data">
@@ -56,21 +70,8 @@
 <c:otherwise></c:otherwise>
 </c:choose>
 </div>
+</div>
 
-<%-- <div class="rightBar">
-	<p class="albumName"><c:out value="${ album.name }"/></p>
-	<div class="line"></div>
-	<c:choose>
-	<c:when test="${ album.creator.id == sessId }">
-		<form action="/album/delete/${ album.id }">
-			<input type="submit" value="Delete Album" onclick="return confirm('Are you sure you want to delete this album?');">
-		</form>
-	</c:when>
-	<c:otherwise>
-		<p><a href="/profile/view/${ album.creator.id }">Back to <c:out value="${ album.creator.firstName }"/>'s profile</a></p>
-	</c:otherwise>
-</c:choose>
-</div> --%>
 
 
 </body>
