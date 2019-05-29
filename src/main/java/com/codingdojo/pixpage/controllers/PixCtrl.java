@@ -172,15 +172,15 @@ public String deleteAlbum(@PathVariable("id")Long id) {
 		for(int i =0; i < friends.size(); i++) {
 			friendIds.add(friends.get(i).getId());
 		};
-		while (suggested.size() != 5) {
 			for(int x = 0; x < allUsers.size(); x++) {
+				if(suggested.size() >= 5) {
+					break;
+				};
 				if (friendIds.contains(allUsers.get(x).getId()) || allUsers.get(x).getId() == session.getAttribute("userId")) {
 				} else {
 					suggested.add(allUsers.get(x));
 				}
 			}
-		}
-		System.out.println(suggested.size());
 		model.addAttribute("suggested", suggested);
 		return "friendsList.jsp";
 	}

@@ -7,18 +7,6 @@
 <html>
 <head>
 	<link href="/css/profileViewStyle.css" rel="stylesheet">
-	<!-- <style>
-		.usersAlbums {
-			border: 2px solid black;
-		}
-		.albumBox {
-			display: inline-block;
-			border: 2px solid red;
-			height: 65px;
-			width: 65px;
-			text-align: center;
-		}
-	</style> -->
 	<meta charset="UTF-8">
 	<title><c:out value="${ otherUser.firstName }"/>'s Profile</title>
 </head>
@@ -41,7 +29,7 @@
 <div class="usersAlbums">
 	<c:forEach items="${ otherUser.albums }" var="album">
 		<div class="albumBox">
-			<a href="/album/view/${ album.id }"><c:out value="${ album.name }"/></a> 
+			<a class="linkColor" href="/album/view/${ album.id }"><div class="albumLink" style="background: url(data:image/png;base64,${ album.images[0].base64 }); background-size: 100% 100% "></div></a> 
 		</div>
 	</c:forEach>
 	
