@@ -31,6 +31,16 @@
 <p class="desc">
 	<c:out value="${ image.description }"/>
 </p>
+<%-- <div class="deleteImage">
+	<c:choose>
+		<c:when test="${ sessId == image.owner.id }">	
+			<form action="/image/delete/${ image.id }">
+			<input type="submit" value="Delete Image" onclick="return confirm('Are you sure you want to delete this image?');">
+		</form>
+		</c:when>
+		<c:otherwise></c:otherwise>
+	</c:choose>
+</div> --%>
 <br />
 
 <div class="comments">
@@ -48,26 +58,20 @@
 </c:forEach>
 </div>
 
+<div class="addCommentBox">
 <form:form action="/post/comment/${ image.id }" method="post" modelAttribute="newComment">
 	<p>
 		<form:label path="comment">Add A Comment: </form:label>
+		<br />
 		<form:textarea cols="40" rows="10" path="comment"/>
 		<form:errors path="comment"/>
 	</p>
 	<input type="submit" value="Add Message"/>
 </form:form>
 </div>
-
-<div class="rightBar">
-	<c:choose>
-		<c:when test="${ sessId == image.owner.id }">	
-			<form action="/image/delete/${ image.id }">
-			<input type="submit" value="Delete Image" onclick="return confirm('Are you sure you want to delete this image?');">
-		</form>
-		</c:when>
-		<c:otherwise></c:otherwise>
-	</c:choose>
 </div>
+
+
 	
 </body>
 </html>
